@@ -124,7 +124,7 @@ Bitcoin, merkezi bir otorite olmadan çalışan, güvenli ve şeffaf bir dijital
     reddit_text<- hot_kripto$title
   ```
 - ## Düzenlenmemiş yorumların tablosu.
-  <img src="./REDDIT/reddıtyorumtablo.jpg"></img>
+  <img src="https://github.com/SoltanHuseynov/Data-mining-/blob/master/REDDIT/redd%C4%B1tyorumtablo.jpg"></img>
   
 - ## Adım 3 : Yorumuların içerisinde olan kereksiz karakter işaretlerini silelim. Bunun için kendi oluşturduğumz paket `StringRegex` içerisindeki `replace_all()`fonksiyonu kullanıyoruz.
   ```r
@@ -139,7 +139,7 @@ Bitcoin, merkezi bir otorite olmadan çalışan, güvenli ve şeffaf bir dijital
     #sonra excel tablosuna aktaralım
     write_xlsx(Rdata,"odev/REDDIT/Redditlexcion.csv")
   ```
- <img src="./REDDIT/duzenlenmişyorumR.jpg"></img>
+ <img src="https://github.com/SoltanHuseynov/Data-mining-/blob/master/REDDIT/duzenlenmi%C5%9FyorumR.jpg"></img>
 
 - ## Adım 5: Yroumlari tokenlere dönüştürmek ve onların ferekansalırnı almak için kullandığmız kod.
   ```r
@@ -167,7 +167,7 @@ Bitcoin, merkezi bir otorite olmadan çalışan, güvenli ve şeffaf bir dijital
     # son olarak reddit tokenlerimiz hazırdır.
     reddit_tokens <-data.frame(text=clean_tokensR$word,ferq=clean_tokensR$n)
   ```
-  <img src="./REDDIT/redditTokens.jpg"></img>
+  <img src="https://github.com/SoltanHuseynov/Data-mining-/blob/master/REDDIT/redditTokens.jpg"></img>
 
 - ## Adım 7: Kelime bulutu oluşturuyoruz.
   ```r
@@ -179,7 +179,7 @@ Bitcoin, merkezi bir otorite olmadan çalışan, güvenli ve şeffaf bir dijital
       shape = "hexagon"
     )
   ```
-  <img src="./REDDIT/redditwordcloud.jpeg"></img>
+  <img src="https://github.com/SoltanHuseynov/Data-mining-/blob/master/REDDIT/redditwordcloud.jpeg"></img>
 
 - ## Adım 8 : Tokenler taplosunun içerisinde olan en çok ferekanslı kelimeleri alıp görselleştireceğiz.
   ```r
@@ -190,7 +190,7 @@ Bitcoin, merkezi bir otorite olmadan çalışan, güvenli ve şeffaf bir dijital
       theme_minimal() + labs(title = "Reddit üzerinde en çok kullanılan kelimelerin görseli")
     get_plot
   ```
-  <img src="./REDDIT/RplotReddit.jpeg"></img>
+  <img src="https://github.com/SoltanHuseynov/Data-mining-/blob/master/REDDIT/RplotReddit.jpeg"></img>
 
 - ## Adım 9: En çok ferekansıl olan tokenlrı sıralamak için kullandığmız kod.
   ```r
@@ -206,7 +206,7 @@ Bitcoin, merkezi bir otorite olmadan çalışan, güvenli ve şeffaf bir dijital
       barplot(reddit_n,main = "Reddit üzerinde olan kelimelrin ferekansı",las=3,names.arg = reddit_text,col = rainbow(40))
     }
   ```
-  <img src="./REDDIT/RplotReddıt2.jpeg"></img>
+  <img src="https://github.com/SoltanHuseynov/Data-mining-/blob/master/REDDIT/RplotRedd%C4%B1t2.jpeg"></img>
 
 - ## Adım 10: Duygu analizi 
   ```r
