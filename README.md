@@ -1,6 +1,3 @@
-### Öğrenci: <u style="color:green"> Soltan Hüseynov </u>
-### Öğrenci No: <u style="color:green" >99255421838</u>
- 
 
 <div style="font-family:Times New Roman;font-size:20px">   
 
