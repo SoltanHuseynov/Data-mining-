@@ -36,7 +36,7 @@ library(stopwords)#Gereksiz kelimeleri kaldırmak için kullanılır.
 library(syuzhet)#Çeşitli duygu analizi sözlüklerini kullanarak metinden duygu çıkarmak için kullanılır.
 
 #gereksiz kelimelerin listesi
-BreakWords <- read_excel("odev/breakwords.xlsx")
+BreakWords <- read_excel("Data-mining/breakwords.xlsx")
 
 #redditden verileri çekmek için kullandığmiz paket
 library(RedditExtractoR)
@@ -52,7 +52,7 @@ reddit_text <-replace_all(reddit_text)
 Rdata <-data.frame(word=reddit_text)
 
 #sonra excel tablosuna aktaralım
-write_xlsx(Rdata,"odev/REDDIT/Redditlexcion.csv")
+write_xlsx(Rdata,"Data-mining/REDDIT/Redditlexcion.csv")
 
 #karakter kümesine dönüştürelim
 corpus_reddit <- iconv(reddit_text,"UTF-8","UTF-8")
@@ -109,7 +109,7 @@ if(length(reddit_n)!=0){
 #----------------------|
 
 #reddit yorumlarini alalım
-R_lexcion <-read_xlsx("odev/REDDIT/Redditlexcion.csv")
+R_lexcion <-read_xlsx("Data-mining/REDDIT/Redditlexcion.csv")
 
 # yorumlari karakter haline cevirelim.
 commentsR <- iconv(R_lexcion$word,"UTF-8","UTF-8")
@@ -173,7 +173,7 @@ yt_comment_all$text <-replace_all(yt_comment_all$text)
 Ydata <-data.frame(text=yt_comment_all$text)
 
 #veriyleri excele aktaralım.
-write_xlsx(Ydata,"odev/YOUTUBE/YoutubeLexcoin.csv")
+write_xlsx(Ydata,"Data-mining/YOUTUBE/YoutubeLexcoin.csv")
 
 #Corpus işlevini kullanarak bir derlem oluşturuyoruz
 yt_docs <- Corpus(VectorSource(yt_comment_all$text))
@@ -223,7 +223,7 @@ if(length(youtube_n)!=0){
 #---------------
 
 #yorumlarini alalım
-yt_lexcion <-read_xlsx("odev/YOUTUBE/YoutubeLexcoin.csv")
+yt_lexcion <-read_xlsx("Data-mining/YOUTUBE/YoutubeLexcoin.csv")
 
 # yorumlari karakter haline cevirelim.
 commentsYt <-iconv(yt_lexcion$text,"UTF-8","UTF-8")
@@ -247,18 +247,18 @@ barplot(colSums(nrc_y),las=3,col = rainbow(40),
 #son olarak yotube ve reddit üzerinden yorumları birleştirelim
 
 # verileri oluşturduğmuz dosyanın uzerine yazacağız
-file1 <- file2 <- file3 <-loadWorkbook("odev/RedditAndYoutube.xlsx")
+file1 <- file2 <- file3 <-loadWorkbook("Data-mining/RedditAndYoutube.xlsx")
 
 writeData(file2,sheet = "Sheet 1",x="text",startRow = 1,startCol = 1)
 writeData(file1,sheet = "Sheet 1",x=R_lexcion$word,startRow = 2,startCol = 1)
 writeData(file2,sheet = "Sheet 1",x=yt_lexcion$text,startRow = 639,startCol = 1)
 
-saveWorkbook(file1,"odev/RedditAndYoutube.xlsx",overwrite = T)
-saveWorkbook(file2,"odev/RedditAndYoutube.xlsx",overwrite = T)
-saveWorkbook(file3,"odev/RedditAndYoutube.xlsx",overwrite = T)
+saveWorkbook(file1,"Data-mining/RedditAndYoutube.xlsx",overwrite = T)
+saveWorkbook(file2,"Data-mining/RedditAndYoutube.xlsx",overwrite = T)
+saveWorkbook(file3,"Ddata-mining/RedditAndYoutube.xlsx",overwrite = T)
 
 # en sonda duygu analiz 
-redditAndyoutube <-read_xlsx("odev/RedditAndYoutube.xlsx")
+redditAndyoutube <-read_xlsx("Data-mining/RedditAndYoutube.xlsx")
 
 # tokenleri alalım
 tokens <- data.frame(text=redditAndyoutube$text)
